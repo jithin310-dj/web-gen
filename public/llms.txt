@@ -1,0 +1,19 @@
+# NEXGEN CRETIONS
+
+> Premium web design and development studio building modern, fast, responsive and SEO-friendly websites. We also share AI tools, internships, free certifications and tech content for students and professionals.
+
+NEXGEN CRETIONS designs and develops custom business websites, portfolios, e-commerce stores, landing pages, dashboards and web applications. Alongside client work, we publish daily tech content across social media covering AI tools, career opportunities and programming resources.
+
+## Pages
+
+- [Home](/): Overview of services, process, testimonials and social channels.
+- [Services](/services): Full list of web design, development, SEO, AI integration and support services.
+- [Portfolio](/portfolio): Selected projects across business, hospitality, education, industry and SaaS.
+- [About](/about): Mission, vision and the topics we publish for students and professionals.
+- [Tech Content](/tech-content): Categories we cover — AI, web dev, certifications, internships and career growth.
+- [Contact](/contact): Project enquiry form, contact details and frequently asked questions.
+
+## Optional
+
+- [Privacy Policy](/privacy): How we handle enquiry data.
+- [Terms & Conditions](/terms): Terms governing use of our services.
