@@ -148,13 +148,31 @@ function HomePage() {
               Plus AI tools, internships, free certifications and career resources.
             </p>
             <div className="mt-10 flex flex-wrap justify-center gap-4">
-              <Link to="/contact" className="btn-gold inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm">
+              <Link
+                to="/contact"
+                className="btn-gold inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm"
+              >
                 Get Started <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/services" className="btn-ghost-gold inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm">
+
+              <Link
+                to="/services"
+                className="btn-ghost-gold inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm"
+              >
                 View Services
               </Link>
+
+              <a
+                href="/NEXGEN-CREATIONS.apk"
+                download
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-gold inline-flex items-center gap-2 rounded-xl px-7 py-3.5 text-sm"
+              >
+                📱 Download Android App
+              </a>
             </div>
+            
           </motion.div>
 
           {/* Floating cards */}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">NEXGEN CREATIONS</string>
+    <string name="title_activity_main">NEXGEN CREATIONS</string>
+    <string name="package_name">com.nexgen.creations</string>
+    <string name="custom_url_scheme">com.nexgen.creations</string>
+</resources>

@@ -12,6 +12,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@capacitor/android": "^8.4.2",
+    "@capacitor/cli": "^8.4.2",
+    "@capacitor/core": "^8.4.2",
     "@emailjs/browser": "^4.4.1",
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
@@ -85,5 +88,19 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.0.16"
-  }
+  },
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000w\u0000e\u0000b\u0000-\u0000g\u0000e\u0000n\u0000\r\u0000 \u0000#\u0000 \u0000w\u0000e\u0000b\u0000-\u0000g\u0000e\u0000n\u0000\r\u0000 \u0000",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jithin310-dj/web-gen.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jithin310-dj/web-gen/issues"
+  },
+  "homepage": "https://github.com/jithin310-dj/web-gen#readme"
 }
