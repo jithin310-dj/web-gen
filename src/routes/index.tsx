@@ -269,23 +269,64 @@ function HomePage() {
 
       {/* PROCESS */}
       <section className="relative mx-auto max-w-7xl px-4 py-28">
-        <SectionHeader eyebrow="Work Process" title={<>How we <span className="text-gradient-gold">deliver</span></>} />
+        <SectionHeader
+          eyebrow="Work Process"
+          title={
+            <>
+              How we <span className="text-gradient-gold">deliver</span>
+            </>
+          }
+        />
+
         <div className="mt-16 relative">
-          <div className="hidden lg:block absolute top-8 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+          <motion.div
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5 }}
+            className="hidden lg:block absolute top-8 left-0 right-0 h-px origin-left bg-gradient-to-r from-transparent via-gold/50 to-transparent"
+          />
+
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-7">
             {process.map((p, i) => (
               <motion.div
                 key={p.n}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  y: -8,
+                  scale: 1.03,
+                }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+                transition={{
+                  delay: i * 0.08,
+                  duration: 0.6,
+                }}
                 className="text-center relative"
               >
-                <div className="mx-auto h-16 w-16 rounded-full glass border-gold/30 flex items-center justify-center text-gold font-bold text-sm relative z-10 bg-background">
-                  {p.n}
+                <div className="relative mx-auto h-16 w-16">
+                  {/* Rotating Border */}
+                  <motion.div
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      repeat: Infinity,
+                      duration: 8,
+                      ease: "linear",
+                    }}
+                    className="absolute inset-0 rounded-full border-2 border-gold shadow-[0_0_20px_rgba(234,179,8,0.45)]"
+                  />
+
+                  {/* Fixed Number */}
+                  <div className="absolute inset-0 flex items-center justify-center rounded-full bg-background">
+                    <span className="text-lg font-bold text-gold">
+                      {p.n}
+                    </span>
+                  </div>
                 </div>
-                <div className="mt-3 text-sm font-medium">{p.t}</div>
+
+                <div className="mt-4 text-sm font-medium">
+                  {p.t}
+                </div>
               </motion.div>
             ))}
           </div>
