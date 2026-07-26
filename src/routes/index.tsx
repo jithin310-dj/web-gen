@@ -163,7 +163,7 @@ function HomePage() {
               </Link>
 
               <a
-                href="/NEXGEN-CREATIONS.apk"
+                href="/NEXGEN-CREATIONS-v2.apk"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
