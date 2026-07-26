@@ -15,6 +15,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { Navbar } from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import { BackToTop } from "../components/BackToTop";
+import FloatingContact from "../components/FloatingContact";
 
 function NotFoundComponent() {
   return (
@@ -159,14 +160,20 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="relative min-h-dvh">
-        <Navbar />
-        <main className="pt-24">
-          <Outlet />
-        </main>
-        <Footer />
-        <BackToTop />
-      </div>
-    </QueryClientProvider>
+  <div className="relative min-h-dvh">
+    <Navbar />
+
+    <main className="pt-24">
+      <Outlet />
+    </main>
+
+    <Footer />
+
+    <BackToTop />
+
+    <FloatingContact />
+  </div>
+</QueryClientProvider>
+    
   );
 }

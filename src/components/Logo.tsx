@@ -11,7 +11,7 @@ export function Logo({
         <img
           src="/nexgen-logo.png"
           alt="NEXGEN CRETIONS logo"
-          className="h-10 w-10 rounded-lg object-cover ring-1 ring-gold/30"
+          className="h-16 w-16 rounded-lg object-cover ring-1 ring-gold/30"
           loading="eager"
         />
         <div className="absolute inset-0 rounded-lg bg-gradient-to-tr from-gold/0 via-gold/10 to-gold/0" />
@@ -19,10 +19,11 @@ export function Logo({
 
       {showText && (
         <div className="flex flex-col leading-none">
-          <span className="text-sm font-bold tracking-widest text-gradient-gold">
+          <span className="text-xl font-bold tracking-wide text-gradient-gold">
             NEXGEN
           </span>
-          <span className="text-[10px] font-medium tracking-[0.3em] text-muted-foreground">
+
+          <span className="text-sm font-semibold tracking-[0.30em] text-muted-foreground">
             CRETIONS
           </span>
         </div>

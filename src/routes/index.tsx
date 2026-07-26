@@ -112,7 +112,7 @@ const process = [
 ];
 
 const testimonials = [
-  { name: "Arjun Reddy", role: "Startup Founder", text: "NEXGEN built our SaaS site in 10 days. It's blazing fast and looks premium. Traffic doubled." },
+  { name: "Eddula Preethi", role: "Startup Founder", text: "NEXGEN built our SaaS site in 10 days. It's blazing fast and looks premium. Traffic doubled." },
   { name: "Priya Sharma", role: "Restaurant Owner", text: "Beautiful design, easy ordering, mobile-first. Our online orders went up 3× within a month." },
   { name: "Vikram Kumar", role: "College Student", text: "Their AI content and free certification posts helped me land my first internship. Legends." },
 ];
@@ -208,7 +208,7 @@ function HomePage() {
       {/* STATS */}
       <section className="relative mx-auto max-w-7xl px-4 -mt-4">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <Stat value={50} suffix="+" label="Projects Completed" />
+          <Stat value={25} suffix="+" label="Projects Completed" />
           <Stat value={100} suffix="+" label="Students Helped" />
           <Stat value={24} suffix="/7" label="Support" />
           <Stat value={100} suffix="%" label="Responsive Design" />

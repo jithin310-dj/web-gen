@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ExternalLink, Briefcase, UtensilsCrossed, User, GraduationCap, Wheat, Bot, LayoutGrid, BookOpen, Users, Mail, ArrowRight } from "lucide-react";
+import { ExternalLink, Briefcase,ShoppingCart, User,Smartphone , Wheat, Bot, LayoutGrid, BookOpen, Users, Mail, ArrowRight } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { RelatedLinks } from "@/components/RelatedLinks";
 
@@ -20,12 +20,12 @@ export const Route = createFileRoute("/portfolio")({
 });
 
 const projects = [
-  { icon: Briefcase, title: "Business Website", desc: "Modern corporate site with services, team and CMS.", tag: "Business", gradient: "from-yellow-500/20 to-amber-500/10" },
-  { icon: UtensilsCrossed, title: "Restaurant Website", desc: "Menu, online orders and table reservations.", tag: "Hospitality", gradient: "from-orange-500/20 to-red-500/10" },
-  { icon: User, title: "Portfolio Website", desc: "Personal brand site with case studies.", tag: "Personal", gradient: "from-purple-500/20 to-pink-500/10" },
-  { icon: GraduationCap, title: "Educational Website", desc: "Courses, faculty and student portals.", tag: "Education", gradient: "from-blue-500/20 to-cyan-500/10" },
-  { icon: Wheat, title: "Rice Mill Website", desc: "Product catalog and B2B enquiries.", tag: "Industry", gradient: "from-lime-500/20 to-green-500/10" },
-  { icon: Bot, title: "AI Dashboard", desc: "Real-time analytics with AI insights.", tag: "SaaS", gradient: "from-fuchsia-500/20 to-indigo-500/10" },
+  { icon: Briefcase, title: "Business Website", desc: "Modern corporate website with services and CMS.", tag: "Business", gradient: "from-yellow-500/20 to-amber-500/10" },
+  { icon: User, title: "Portfolio Website", desc: "Professional portfolio showcasing skills and projects.", tag: "Personal", gradient: "from-purple-500/20 to-pink-500/10" },
+  { icon: ShoppingCart, title: "E-Commerce Website", desc: "Online store with payments and order management.", tag: "E-Commerce", gradient: "from-emerald-500/20 to-green-500/10" },
+  { icon: Wheat, title: "Rice Mill Website", desc: "Product catalog with B2B enquiries.", tag: "Industry", gradient: "from-lime-500/20 to-green-500/10" },
+  { icon: Smartphone, title: "Android App Development", desc: "Modern Android apps with responsive UI.", tag: "Mobile App", gradient: "from-cyan-500/20 to-blue-500/10" },
+  { icon: Bot, title: "AI Dashboard", desc: "AI-powered analytics and automation platform.", tag: "AI", gradient: "from-fuchsia-500/20 to-indigo-500/10" },
 ];
 
 function PortfolioPage() {
