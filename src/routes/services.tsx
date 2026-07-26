@@ -1,9 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
-  Palette, Briefcase, User, LayoutTemplate, UtensilsCrossed, GraduationCap, School,
-  ShoppingCart, LayoutDashboard, RefreshCw, Wrench, Gauge, Search, Bot, Server,
-  Globe, Code2, LifeBuoy, ArrowRight, LayoutGrid, BookOpen, Users, Mail,
+  Palette,Briefcase,ShoppingCart,LayoutDashboard,Wrench,Smartphone,
+  Package,ArrowRight,LayoutGrid,BookOpen,Users,Mail,
 } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { RelatedLinks } from "@/components/RelatedLinks";
@@ -12,9 +11,9 @@ export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
       { title: "Services — NEXGEN CRETIONS" },
-      { name: "description", content: "Custom websites, e-commerce, dashboards, SEO, AI chatbots, hosting and more." },
+      { name: "description", content: "Professional website design, Android app development, website-to-app conversion, APK generation, custom web applications, admin dashboards and maintenance." },
       { property: "og:title", content: "Services — NEXGEN CRETIONS" },
-      { property: "og:description", content: "Explore our full range of web design, development, e-commerce, SEO, AI integration, hosting and support services." },
+      { property: "og:description",  content: "Explore our website development, Android app development, website-to-app conversion, APK generation, custom web applications and business solutions."},
       { property: "og:url", content: "/services" },
     ],
     links: [{ rel: "canonical", href: "/services" }],
@@ -24,24 +23,46 @@ export const Route = createFileRoute("/services")({
 });
 
 const services = [
-  { icon: Palette, title: "Custom Website Design", desc: "Unique pixel-perfect designs made for your brand." },
-  { icon: Briefcase, title: "Business Websites", desc: "Professional sites that convert visitors into customers." },
-  { icon: User, title: "Portfolio Websites", desc: "Showcase your work with a stunning personal brand." },
-  { icon: LayoutTemplate, title: "Landing Pages", desc: "High-converting pages built for campaigns." },
-  { icon: UtensilsCrossed, title: "Restaurant Websites", desc: "Menus, reservations and online orders." },
-  { icon: School, title: "School Websites", desc: "Modern school sites with admissions & info." },
-  { icon: GraduationCap, title: "College Websites", desc: "College portals with departments and events." },
-  { icon: ShoppingCart, title: "E-Commerce Websites", desc: "Full-featured stores with payments & carts." },
-  { icon: LayoutDashboard, title: "Admin Dashboards", desc: "Powerful custom admin panels & analytics." },
-  { icon: RefreshCw, title: "Website Redesign", desc: "Give your old site a modern premium look." },
-  { icon: Wrench, title: "Website Maintenance", desc: "Keep your site secure, fast and up to date." },
-  { icon: Gauge, title: "Website Optimization", desc: "Speed, Core Web Vitals & Lighthouse tuning." },
-  { icon: Search, title: "SEO Optimization", desc: "Rank higher on Google with proven SEO." },
-  { icon: Bot, title: "AI Chatbot Integration", desc: "24/7 AI assistants trained on your data." },
-  { icon: Server, title: "Hosting & Deployment", desc: "Fast global hosting with auto SSL." },
-  { icon: Globe, title: "Domain Setup", desc: "End-to-end domain configuration & DNS." },
-  { icon: Code2, title: "Custom Web Applications", desc: "SaaS, portals and complex web apps." },
-  { icon: LifeBuoy, title: "Technical Support", desc: "Ongoing expert support whenever you need." },
+  {
+    icon: Palette,
+    title: "Custom Website Design",
+    desc: "Modern, responsive, and premium websites tailored to your brand.",
+  },
+  {
+    icon: Briefcase,
+    title: "Business Websites",
+    desc: "Professional websites for startups, businesses, and companies.",
+  },
+  {
+    icon: ShoppingCart,
+    title: "E-Commerce Websites",
+    desc: "Online stores with secure payments, carts, and order management.",
+  },
+  {
+    icon: LayoutDashboard,
+    title: "Admin Dashboards",
+    desc: "Custom dashboards with analytics, reports, and management tools.",
+  },
+  {
+    icon: Smartphone,
+    title: "Android App Development",
+    desc: "Professional Android applications with modern UI and high performance.",
+  },
+  {
+    icon: Smartphone,
+    title: "Website to Android App",
+    desc: "Convert your website into a fully functional Android application.",
+  },
+  {
+    icon: Package,
+    title: "APK Build & Play Store Ready",
+    desc: "Signed APK/AAB generation and Google Play Store deployment support.",
+  },
+  {
+    icon: Wrench,
+    title: "Website & App Maintenance",
+    desc: "Regular updates, bug fixes, security improvements, and technical support.",
+  },
 ];
 
 function ServicesPage() {
@@ -51,7 +72,7 @@ function ServicesPage() {
         as="h1"
         eyebrow="Services"
         title={<>Everything you need, <span className="text-gradient-gold">under one roof</span></>}
-        description="From concept to deployment — we handle the full lifecycle of your web presence."
+        description="From websites to Android apps, we design, develop, deploy and maintain complete digital solutions for businesses."
       />
 
 
