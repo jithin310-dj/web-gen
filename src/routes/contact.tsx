@@ -156,15 +156,31 @@ function ContactPage() {
             </select>
             <select aria-label="Budget range" className={`${input} sm:col-span-2`} value={form.budget} onChange={(e) => setForm({ ...form, budget: e.target.value })}>
               <option value="">Budget range</option>
-              <option>Under ₹10,000</option>
-              <option>₹10,000 – ₹30,000</option>
-              <option>₹30,000 – ₹1,00,000</option>
+              <option>Under ₹30,000</option>
+              <option>₹30,000 – ₹50,000</option>
+              <option>₹50,000 – ₹1,00,000</option>
               <option>₹1,00,000+</option>
             </select>
           </div>
           <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} options={{ theme: "auto" }} />
 
-          <button type="submit" disabled={status === "sending"} className="btn-gold w-full rounded-xl py-3.5 text-sm inline-flex items-center justify-center gap-2 disabled:opacity-70"></button>
+          <button
+            type="submit"
+            disabled={status === "sending"}
+            className="btn-gold w-full rounded-xl py-3.5 text-sm inline-flex items-center justify-center gap-2 disabled:opacity-70"
+          >
+            {status === "sending" ? (
+              <>
+                <Loader2 className="h-4 w-4 animate-spin" />
+                Submitting...
+              </>
+            ) : (
+              <>
+                <Send className="h-4 w-4" />
+                Submit Project Request
+              </>
+            )}
+          </button>
 
           {status === "success" && (
             <div className="flex items-center gap-2 text-sm text-green-400"><CheckCircle2 className="h-4 w-4" /> Sent! We'll get back to you shortly.</div>
