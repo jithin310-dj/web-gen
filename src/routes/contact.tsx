@@ -158,7 +158,8 @@ function ContactPage() {
               <option value="">Budget range</option>
               <option>Under ₹30,000</option>
               <option>₹30,000 – ₹50,000</option>
-              <option>₹50,000 – ₹1,00,000</option>
+              <option>₹50,000 – ₹70,000</option>
+              <option>₹70,000 – ₹1,00,000</option>
               <option>₹1,00,000+</option>
             </select>
           </div>
