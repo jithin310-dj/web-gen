@@ -61,7 +61,7 @@ function TechContentPage() {
         {categories.map((c) => (
           <div
             key={c.name}
-            className="glass-card rounded-2xl p-5 group flex items-center gap-4"
+            className="rounded-2xl p-5 group flex items-center gap-4"
           >
             <div className="h-11 w-11 rounded-xl bg-gold/10 ring-1 ring-gold/30 flex items-center justify-center text-gold shrink-0">
               <c.icon className="h-5 w-5" />
