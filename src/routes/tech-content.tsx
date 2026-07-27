@@ -63,7 +63,7 @@ function TechContentPage() {
             key={c.name}
             className="rounded-2xl p-5 group flex items-center gap-4"
           >
-            <div className="h-11 w-11 rounded-xl bg-gold/10 ring-1 ring-gold/30 flex items-center justify-center text-gold shrink-0">
+            <div className="h-11 w-11 rounded-xl bg-gold/10 ring-2 ring-gold shadow-[0_0_15px_rgba(212,175,55,0.45)] flex items-center justify-center text-gold shrink-0">
               <c.icon className="h-5 w-5" />
             </div>
             <div className="text-sm font-medium">{c.name}</div>
