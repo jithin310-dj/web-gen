@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Mail, Instagram, Youtube, MessageCircle, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { SectionHeader } from "@/components/SectionHeader";
 
 export const Route = createFileRoute("/contact")({
@@ -51,9 +52,14 @@ const faqs = [
 function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [form, setForm] = useState({ name: "", email: "", phone: "", projectType: "", budget: "", message: "" });
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!turnstileToken) {
+      alert("Please complete the security verification.");
+      return;
+    }
     setStatus("sending");
     try {
       if (EMAILJS_SERVICE.startsWith("YOUR_")) {
@@ -156,12 +162,9 @@ function ContactPage() {
               <option>₹1,00,000+</option>
             </select>
           </div>
-          <textarea required aria-label="Project details" rows={5} className={input} placeholder="Tell us about your project…" value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+          <Turnstile siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY} onSuccess={(token) => setTurnstileToken(token)} options={{ theme: "auto" }} />
 
-
-          <button type="submit" disabled={status === "sending"} className="btn-gold w-full rounded-xl py-3.5 text-sm inline-flex items-center justify-center gap-2 disabled:opacity-70">
-            {status === "sending" ? <><Loader2 className="h-4 w-4 animate-spin" /> Sending…</> : <><Send className="h-4 w-4" /> Send message</>}
-          </button>
+          <button type="submit" disabled={status === "sending"} className="btn-gold w-full rounded-xl py-3.5 text-sm inline-flex items-center justify-center gap-2 disabled:opacity-70"></button>
 
           {status === "success" && (
             <div className="flex items-center gap-2 text-sm text-green-400"><CheckCircle2 className="h-4 w-4" /> Sent! We'll get back to you shortly.</div>
