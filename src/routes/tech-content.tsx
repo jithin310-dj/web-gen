@@ -56,7 +56,43 @@ function TechContentPage() {
         description="We regularly publish tech content to help students, developers and professionals stay ahead."
       />
 
+      {/* Follow Us */}
+      <div className="mt-16 glass-card rounded-3xl p-10 md:p-14 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold">
+          Follow us for daily <span className="text-gradient-gold">tech drops</span>
+        </h2>
+        <p className="mt-3 text-muted-foreground">
+          New AI tools, jobs and free courses every week on our channels.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-3">
+          <a
+            href="https://www.instagram.com/nexgen_cretions"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-gold rounded-xl px-6 py-3 text-sm"
+          >
+            Instagram
+          </a>
+          <a
+            href="https://www.youtube.com/@nexgencreations"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-ghost-gold rounded-xl px-6 py-3 text-sm"
+          >
+            YouTube
+          </a>
+          <a
+            href="https://whatsapp.com/channel/0029Vb8Eh6YDTkKD57GAHZ2I"
+            target="_blank"
+            rel="noreferrer"
+            className="btn-ghost-gold rounded-xl px-6 py-3 text-sm"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
 
+      {/* Categories */}
       <div className="mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {categories.map((c) => (
           <div
@@ -69,16 +105,6 @@ function TechContentPage() {
             <div className="text-sm font-medium">{c.name}</div>
           </div>
         ))}
-      </div>
-
-      <div className="mt-20 glass-card rounded-3xl p-10 md:p-14 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold">Follow us for daily <span className="text-gradient-gold">tech drops</span></h2>
-        <p className="mt-3 text-muted-foreground">New AI tools, jobs and free courses every week on our channels.</p>
-        <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <a href="https://www.instagram.com/nexgen_cretions" target="_blank" rel="noreferrer" className="btn-gold rounded-xl px-6 py-3 text-sm">Instagram</a>
-          <a href="https://www.youtube.com/@nexgencreations" target="_blank" rel="noreferrer" className="btn-ghost-gold rounded-xl px-6 py-3 text-sm">YouTube</a>
-          <a href="https://whatsapp.com/channel/0029Vb8Eh6YDTkKD57GAHZ2I" target="_blank" rel="noreferrer" className="btn-ghost-gold rounded-xl px-6 py-3 text-sm">WhatsApp</a>
-        </div>
       </div>
 
       <RelatedLinks
