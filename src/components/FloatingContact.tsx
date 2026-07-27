@@ -29,6 +29,16 @@ export default function FloatingContact() {
           <Instagram size={20} />
           <span className="text-sm font-medium">Instagram DM</span>
         </a>
+        {/* WhatsApp */}
+        <a
+          href="https://wa.me/917993363138?text=Hi%20NEXGEN%20CREATIONS,%20I'm%20interested%20in%20your%20services."
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 rounded-full bg-[#25D366] px-4 py-3 text-white shadow-lg hover:scale-105 transition"
+        >
+          <MessageCircle size={20} />
+          <span className="text-sm font-medium">WhatsApp</span>
+        </a>
 
         {/* Email */}
         <a
