@@ -58,20 +58,16 @@ function TechContentPage() {
 
 
       <div className="mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-        {categories.map((c, i) => (
-          <motion.div
+        {categories.map((c) => (
+          <div
             key={c.name}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: (i % 8) * 0.04 }}
-            className="glass-card rounded-2xl p-5 hover-lift group flex items-center gap-4"
+            className="glass-card rounded-2xl p-5 group flex items-center gap-4"
           >
-            <div className="h-11 w-11 rounded-xl bg-gold/10 ring-1 ring-gold/30 flex items-center justify-center text-gold group-hover:scale-110 transition-transform shrink-0">
+            <div className="h-11 w-11 rounded-xl bg-gold/10 ring-1 ring-gold/30 flex items-center justify-center text-gold shrink-0">
               <c.icon className="h-5 w-5" />
             </div>
             <div className="text-sm font-medium">{c.name}</div>
-          </motion.div>
+          </div>
         ))}
       </div>
 
