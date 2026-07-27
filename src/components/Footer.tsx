@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 const socials = [
   { icon: Instagram, href: "https://www.instagram.com/nexgen_cretions", label: "Instagram" },
   { icon: Youtube, href: "https://www.youtube.com/@nexgencreations", label: "YouTube" },
-  { icon: MessageCircle, href: "https://whatsapp.com/channel/0029Vb8Eh6YDTkKD57GAHZ2I", label: "WhatsApp" },
+  { icon: MessageCircle, href: "https://wa.me/917993363138", label: "WhatsApp" },
 ];
 
 export function Footer() {

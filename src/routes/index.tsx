@@ -371,7 +371,7 @@ function HomePage() {
           {[
             { icon: Instagram, name: "Instagram", handle: "@nexgen_cretions", href: "https://www.instagram.com/nexgen_cretions", color: "from-pink-500/20 to-purple-500/20" },
             { icon: Youtube, name: "YouTube", handle: "@nexgencreations", href: "https://www.youtube.com/@nexgencreations", color: "from-red-500/20 to-orange-500/20" },
-            { icon: MessageCircle, name: "WhatsApp", handle: "Channel", href: "https://whatsapp.com/channel/0029Vb8Eh6YDTkKD57GAHZ2I", color: "from-green-500/20 to-emerald-500/20" },
+            { icon: MessageCircle, name: "WhatsApp", handle: "+91 79933 63138", href: "https://wa.me/917993363138", color: "from-green-500/20 to-emerald-500/20" },
           ].map((s) => (
             <a key={s.name} href={s.href} target="_blank" rel="noreferrer" className={`glass-card rounded-2xl p-6 hover-lift bg-gradient-to-br ${s.color}`}>
               <div className="flex items-center justify-between">

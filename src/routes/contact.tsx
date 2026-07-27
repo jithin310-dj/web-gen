@@ -118,7 +118,7 @@ function ContactPage() {
               {[
                 { icon: Instagram, label: "@nexgen_cretions", href: "https://www.instagram.com/nexgen_cretions" },
                 { icon: Youtube, label: "@nexgencreations", href: "https://www.youtube.com/@nexgencreations" },
-                { icon: MessageCircle, label: "WhatsApp Channel", href: "https://whatsapp.com/channel/0029Vb8Eh6YDTkKD57GAHZ2I" },
+                 { icon: MessageCircle, label: "+91 79933 63138", href: "https://wa.me/917993363138" },
               ].map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm hover:text-gold transition-colors">
                   <s.icon className="h-5 w-5 text-gold" /> {s.label}
