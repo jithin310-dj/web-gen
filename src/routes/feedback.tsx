@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { Star, MessageSquare, Send } from "lucide-react";
+import { useNavigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/feedback")({
   component: FeedbackPage,
@@ -20,11 +21,30 @@ const EMAILJS_PUBLIC =
 function FeedbackPage() {
   const [rating, setRating] = useState(0);
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(5);
+
   const [form, setForm] = useState({
     name: "",
     email: "",
     feedback: "",
   });
+  useEffect(() => {
+    if (!submitted) return;
+
+    const timer = setInterval(() => {
+        setCountdown((prev) => {
+        if (prev <= 1) {
+            clearInterval(timer);
+            navigate({ to: "/" });
+            return 0;
+        }
+        return prev - 1;
+        });
+    }, 1000);
+
+    return () => clearInterval(timer);
+    }, [submitted, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -67,18 +87,36 @@ function FeedbackPage() {
 
   if (submitted) {
     return (
-      <section className="container mx-auto max-w-3xl px-4 py-24 text-center">
-        <div className="glass-card rounded-3xl p-10">
-          <h1 className="text-4xl font-bold">🎉 Thank You!</h1>
+        <section className="container mx-auto max-w-3xl px-4 py-24 text-center">
+        <div className="glass-card rounded-3xl border border-gold/20 p-10">
+            <h1 className="text-4xl font-bold">🎉 Thank You!</h1>
 
-          <p className="mt-4 text-muted-foreground">
-            Your feedback has been received. We appreciate you helping us improve
-            NEXGEN CREATIONS.
-          </p>
+            <p className="mt-4 text-lg text-muted-foreground">
+            Your feedback has been received successfully.
+            </p>
+
+            <p className="mt-2 text-muted-foreground">
+            Thank you for helping us improve NEXGEN CREATIONS.
+            </p>
+
+            <div className="mt-8 space-y-4">
+            <p className="text-muted-foreground">
+                Redirecting to Home in
+                <span className="font-bold text-gold"> {countdown} </span>
+                seconds...
+            </p>
+
+            <button
+                onClick={() => navigate({ to: "/" })}
+                className="btn-gold rounded-xl px-8 py-3"
+            >
+                Back to Home
+            </button>
+            </div>
         </div>
-      </section>
+        </section>
     );
-  }
+    }
 
   return (
     <section className="container mx-auto max-w-3xl px-4 py-20">

@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Mail, Instagram, Youtube, MessageCircle, Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { Turnstile } from "@marsidev/react-turnstile";
@@ -36,9 +37,9 @@ export const Route = createFileRoute("/contact")({
 
 
 // TODO: Replace with your EmailJS credentials (Dashboard → Account → API keys)
-const EMAILJS_SERVICE = (import.meta as any).env?.VITE_EMAILJS_SERVICE_ID ?? "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE = (import.meta as any).env?.VITE_EMAILJS_TEMPLATE_ID ?? "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC = (import.meta as any).env?.VITE_EMAILJS_PUBLIC_KEY ?? "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE = (import.meta as any).env?.VITE_EMAILJS_SERVICE_ID ?? "service_hn6td4w";
+const EMAILJS_TEMPLATE = (import.meta as any).env?.VITE_EMAILJS_TEMPLATE_ID ?? "template_zdxqzy4";
+const EMAILJS_PUBLIC = (import.meta as any).env?.VITE_EMAILJS_PUBLIC_KEY ?? "xOrn17TuO3LliuJ9E";
 
 const faqs = [
   { q: "How long does website development take?", a: "Most projects ship in 1–3 weeks depending on scope. Landing pages are often live within days." },
@@ -53,6 +54,26 @@ function ContactPage() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [form, setForm] = useState({ name: "", email: "", phone: "", projectType: "", budget: "", message: "" });
   const [turnstileToken, setTurnstileToken] = useState("");
+  const navigate = useNavigate();
+  const [countdown, setCountdown] = useState(5);
+  useEffect(() => {
+    if (status !== "success") return;
+
+    setCountdown(5); // Reset countdown every time success occurs
+
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          clearInterval(timer);
+          navigate({ to: "/" });
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [status, navigate]);
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,39 +81,79 @@ function ContactPage() {
       alert("Please complete the security verification.");
       return;
     }
-    setStatus("sending");
-    try {
-      if (EMAILJS_SERVICE.startsWith("YOUR_")) {
-        // Fallback: open mail client if EmailJS is not configured yet
-        const body = encodeURIComponent(
-          `Name: ${form.name}\nEmail: ${form.email}\nPhone: ${form.phone}\nProject: ${form.projectType}\nBudget: ${form.budget}\n\n${form.message}`,
-        );
-        window.location.href = `mailto:nexgencretions@gmail.com?subject=New Project Enquiry from ${form.name}&body=${body}`;
-        setStatus("success");
-        return;
-      }
-      await emailjs.send(
-        EMAILJS_SERVICE,
-        EMAILJS_TEMPLATE,
-        {
-          from_name: form.name,
-          from_email: form.email,
-          phone: form.phone,
-          project_type: form.projectType,
-          budget: form.budget,
-          message: form.message,
-          to_email: "nexgencretions@gmail.com",
-        },
-        { publicKey: EMAILJS_PUBLIC },
-      );
-      setStatus("success");
-      setForm({ name: "", email: "", phone: "", projectType: "", budget: "", message: "" });
-    } catch (err) {
-      console.error(err);
-      setStatus("error");
-    }
-  };
 
+  // Validate 10-digit phone number
+  if (!/^\d{10}$/.test(form.phone)) {
+    alert("Please enter a valid 10-digit phone number.");
+    return;
+  }
+
+  setStatus("sending");
+
+  try {
+    await emailjs.send(
+      EMAILJS_SERVICE,
+      EMAILJS_TEMPLATE,
+      {
+        from_name: form.name,
+        from_email: form.email,
+        phone: form.phone,
+        project_type: form.projectType,
+        budget: form.budget,
+        message: form.message,
+        to_email: "nexgencretions@gmail.com",
+      },
+      { publicKey: EMAILJS_PUBLIC }
+    );
+
+    setStatus("success");
+    setForm({
+      name: "",
+      email: "",
+      phone: "",
+      projectType: "",
+      budget: "",
+      message: "",
+    });
+  } catch (err: any) {
+    console.error("EmailJS Error:", err);
+    alert(err?.text || err?.message || JSON.stringify(err));
+    setStatus("error");
+  }
+};
+  if (status === "success") {
+  return (
+    <section className="container mx-auto max-w-3xl px-4 py-24 text-center">
+      <div className="glass-card rounded-3xl border border-gold/20 p-10">
+        <h1 className="text-4xl font-bold">🎉 Thank You!</h1>
+
+        <p className="mt-4 text-lg text-muted-foreground">
+          Your project request has been submitted successfully.
+        </p>
+
+        <p className="mt-2 text-muted-foreground">
+          We'll review your requirements and contact you within
+          <span className="font-semibold text-gold"> 24 hours.</span>
+        </p>
+
+        <div className="mt-8 space-y-4">
+          <p className="text-muted-foreground">
+            Redirecting to Home in
+            <span className="font-bold text-gold"> {countdown} </span>
+            seconds...
+          </p>
+
+          <button
+            onClick={() => navigate({ to: "/" })}
+            className="btn-gold rounded-xl px-8 py-3"
+          >
+            Back to Home
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+}
   const input = "w-full rounded-xl bg-input/50 border border-gold/20 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-gold/60 focus:ring-2 focus:ring-gold/20 transition-all";
 
   return (
@@ -144,7 +205,21 @@ function ContactPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             <input required aria-label="Your name" className={input} placeholder="Your name" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
             <input required type="email" aria-label="Email address" className={input} placeholder="Email address" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-            <input aria-label="Phone number" className={input} placeholder="Phone" value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} />
+            <input
+              type="tel"
+              aria-label="Phone number"
+              className={input}
+              placeholder="Phone Number"
+              value={form.phone}
+              onChange={(e) =>
+                setForm({
+                  ...form,
+                  phone: e.target.value.replace(/\D/g, "").slice(0, 10),
+                })
+              }
+              maxLength={10}
+              required
+            />
             <select aria-label="Project type" className={input} value={form.projectType} onChange={(e) => setForm({ ...form, projectType: e.target.value })}>
               <option value="">Project type</option>
               <option>Business Website</option>
@@ -183,9 +258,6 @@ function ContactPage() {
             )}
           </button>
 
-          {status === "success" && (
-            <div className="flex items-center gap-2 text-sm text-green-400"><CheckCircle2 className="h-4 w-4" /> Sent! We'll get back to you shortly.</div>
-          )}
           {status === "error" && (
             <div className="flex items-center gap-2 text-sm text-red-400"><AlertCircle className="h-4 w-4" /> Something went wrong. Please email us directly.</div>
           )}
