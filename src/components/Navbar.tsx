@@ -11,6 +11,7 @@ const links = [
   { to: "/tech-content", label: "Tech Content" },
   { to: "/about", label: "About" },
   { to: "/contact", label: "Contact" },
+  { to: "/feedback", label: "Feedback" }, // Add this
 ] as const;
 
 export function Navbar() {
